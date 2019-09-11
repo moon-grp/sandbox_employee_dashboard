@@ -1,10 +1,27 @@
 <template>
   <v-app>
     <appbar />
-    <v-container>
-      <sidemenu />
+    
+      <v-row class="pa-5">
+      <v-col sm="12" lg="3">
+      <sidemenu  />
+        </v-col>
+        <v-col sm="12" lg="9">
       <listusers />
-    </v-container>
+        </v-col>
+           <v-btn
+              absolute
+              dark
+              fab
+              bottom
+              right
+              color="pink"
+            >
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+      </v-row>
+  
+    
   </v-app>
 </template>
 

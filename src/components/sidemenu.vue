@@ -4,17 +4,25 @@
     class="mx-auto"
     max-width="300"
     tile
+    
   >
     <v-list shaped>
-     
-           <v-avatar tile class="">
+     <v-row>
+           <v-avatar tile class="mt-4 ml-6 mb-4">
       <img
         src="https://cdn.vuetifyjs.com/images/john.jpg"
         alt="John"
       >
     </v-avatar>
+    <v-col>
     <h4 class=""> Welcome olumide </h4>
     <h5>Super Admin</h5>
+    </v-col>
+    <v-col align="end">
+     <v-icon class="mt-n10 " color="green">mdi-bookmark</v-icon>
+    </v-col>
+     </v-row>
+     
        <v-divider></v-divider>
       <v-list-item-group v-model="item" color="primary">
         <v-list-item
@@ -34,7 +42,10 @@
     
     <v-card-actions >
         <v-row align="center" justify="center">
-      <v-btn text>Full Report</v-btn>
+       <v-btn depressed color="white" >
+            <v-icon left dark>mdi-power</v-icon>
+          Logout
+          </v-btn>
         </v-row>
     </v-card-actions>
   </v-card>
