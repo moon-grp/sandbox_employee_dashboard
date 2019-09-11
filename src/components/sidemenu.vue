@@ -27,18 +27,16 @@
           <v-list-item-content>
             <v-list-item-title v-text="item.text"></v-list-item-title>
           </v-list-item-content>
-           <v-list-item-content
-            absolute
-                  bottom
-                  left
-           >
-               <v-list-item-title>
-                   lol
-               </v-list-item-title>
-           </v-list-item-content>
+          
         </v-list-item>
       </v-list-item-group>
     </v-list>
+    
+    <v-card-actions >
+        <v-row align="center" justify="center">
+      <v-btn text>Full Report</v-btn>
+        </v-row>
+    </v-card-actions>
   </v-card>
     </div>
 </template>
@@ -50,13 +48,13 @@ export default {
         return{
             item: 1,
       items: [
-        { text: 'OVerview', icon: 'mdi-clock' },
-        { text: 'Reservation', icon: 'mdi-account' },
-        { text: 'Meeting', icon: 'mdi-flag' },
-        { text: 'Customers', icon: 'mdi-flag' },
-        { text: 'Ticket', icon: 'mdi-flag' },
-        { text: 'Message', icon: 'mdi-flag' },
-        { text: 'Profile', icon: 'mdi-flag' },
+        { text: 'Overview', icon: 'mdi-widgets' },
+        { text: 'Reservation', icon: 'mdi-bookmark' },
+        { text: 'Meeting', icon: 'mdi-credit-card-outline' },
+        { text: 'Customers', icon: 'mdi-account-multiple' },
+        { text: 'Ticket', icon: 'mdi-assistant' },
+        { text: 'Message', icon: 'mdi-forum' },
+        { text: 'Profile', icon: 'mdi-account' },
       ],
         }
     }

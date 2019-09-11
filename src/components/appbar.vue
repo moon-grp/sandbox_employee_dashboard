@@ -26,7 +26,7 @@
 <v-spacer />
       <v-toolbar-items>
        
-        <v-btn class="mr-12" color="white" >
+        <v-btn depressed class="mr-12" color="white" >
             <v-icon left dark>mdi-bell</v-icon>
           Set Alert
           </v-btn>
