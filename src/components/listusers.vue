@@ -6,9 +6,9 @@
       <h1>Messages</h1>
     </v-col>
     <v-col align="end">
-       <v-btn class="mr-6" color="primary">All</v-btn>
-      <v-btn class="mr-1">Unread</v-btn>
-       <v-btn>Important</v-btn>
+       <v-btn tile depressed class="mr-6" color="primary">All</v-btn>
+      <v-btn tile depressed class="mr-1">Unread</v-btn>
+       <v-btn tile depressed>Important</v-btn>
     </v-col>
   </v-row>
          <v-card
