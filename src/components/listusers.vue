@@ -51,12 +51,7 @@
               fab
             > <h1>d</h1>
             </v-btn>
-             <v-btn
-              outlined
-              color="white"
-              fab
-            > <h1>v</h1>
-            </v-btn>
+        
         </v-row>
     </v-col>
     <v-col class="pt-5">
@@ -125,54 +120,73 @@
 
    <v-data-table
     :headers="headers"
-    :items="desserts"
+    :items="gusers"
     class="elevation-1"
      show-select
   >
-    <template v-slot:item.calories="{ item }">
-     <!-- <v-chip :color="getColor(item.calories)" dark>{{ item.calories }}</v-chip> -->
-      <v-avatar
+
+   <template v-slot:item.avatar="{ item }">
+     <v-avatar
     size="40"
     >
       <img
-        src="https://cdn.vuetifyjs.com/images/john.jpg"
+        :src=item.avatar_url
         alt="John"
       >
     </v-avatar>
     </template>
+   <template v-slot:item.name="{ item }">
+     <v-btn depressed>{{ item.login }}</v-btn> 
+   
+    </template>
+      <template v-slot:item.RepoUrl="{ item }">
+     <p>{{ item.repos_url }}</p> 
+   
+    </template>
+
+      <template v-slot:item.Score="{ item }">
+     <p>{{ item.score }}</p> 
+   
+    </template>
+     <template v-slot:item.menu="{ item }">
+     <v-icon>mdi-dots-vertical</v-icon>
+   
+    </template>
+
+
+
+
+
+   
   </v-data-table>
-        
+     
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name:'listusers',
     data(){
       return{
          headers: [
-          {
-            text: 'Dessert (100g serving)',
+            {
+            text: '',
             align: 'left',
+            sortable: false,
+            value: 'avatar',
+          },
+          {
+            text: '',
+            align:'left',
             sortable: false,
             value: 'name',
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
-          { text: 'Iron (%)', value: 'iron' },
+          { text: 'Repo Url', value: 'RepoUrl' },
+          { text: 'Score', value: 'Score' },
+          {text:'', value:'menu'}
         ],
-        desserts: [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
-          },
-        ]
+        gusers:[]
       }
     },
        methods: {
@@ -181,6 +195,20 @@ export default {
         else if (calories > 200) return 'orange'
         else return 'green'
       },
+       },
+       created(){
+          axios.get('https://api.github.com/search/users?q=repos:%3E12+followers:%3C1000&location:us+language:python&page=1&per_page=7')
+          .then(
+            Response =>{
+              console.log(Response.data.items)
+              this.gusers= Response.data.items
+            }
+          )
+          .catch(
+            err=>{
+              console.log(err)
+            }
+          )
        }
     
 }
